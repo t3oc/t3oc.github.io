@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-Hour SVG Clock with Hour Disc</title>
+    <style>
+        /* Center the clock in the middle of the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+            margin: 0;
+           
+        }
+        .clock {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            /* border: 3px solid black; */
+            border-radius: 50%;
+        }
+
+        .tri {
+            width:50px;
+            height:50px;
+            
+            position: absolute;
+            top: 2%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .center {
+            width: 10px;
+            height: 10px;
+          
+            border-radius: 50%;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        .hour-disc-container {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            transform-origin: 50% 50%;
+            height: 100%;
+            width: 100%;
+           
+        }
+        .hour-disc {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+          
+        }
+    </style>
+</head>
+<body>
+    <img src="triangle.svg" class="tri"></div>
+    <div class="clock">
+        <div class="center"></div>
+        <!-- Using img tag for SVG -->
+        
+
+        <div class="hour-disc-container" id="hourDiscContainer">
+            <img src="krugolet.svg" class="hour-disc" id="hourDisc" />
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hourDiscContainer = document.getElementById('hourDiscContainer');
+
+            function updateClock() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+                const milliseconds = now.getMilliseconds();
+                // Calculate the degree for the hour disc (16-hour format)
+                const hourDegree = 
+                ((hours % 16) / 16) * 360;
+                                //     ((hours % 24) / 24) * 360 +
+                                //    (minutes / 60) * (360 / 24) +
+                                //    (seconds / 3600) * (360 / 24) +
+                                //    (milliseconds / 3600000) * (360 / 24)
+                                //    +67.5
+                                   //gonna make more slavic calculations...
+
+                hourDiscContainer.style.transform = `rotate(${hourDegree}deg)`;
+            }
+
+            setInterval(updateClock, 100);
+            updateClock(); // Initial call to set the clock disc immediately
+        });
+    </script>
+</body>
+</html>

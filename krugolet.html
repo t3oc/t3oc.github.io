@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" id="viewport" content="width=540">
+  <!--meta name="mobile-web-app-capable" content="yes"-->
+
+  <link sizes="192x192" href="http://images.vfl.ru/ii/1492811614/c37ec175/16950384.jpg" rel="apple-touch-icon">
+  <link sizes="192x192" href="http://images.vfl.ru/ii/1492811614/c37ec175/16950384.jpg" rel="icon" >
+
+  <title>Круголѣтъ</title>
+
+  <link rel="stylesheet" href="./css.css?d=17122018">
+
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <div class="loader" id="loader">
+      <div class="loader-content">
+
+        <div class="loader-text">
+          <b>Круголѣтъ</b>
+          <br/>
+          Славяно-Арийский Календарь
+        </div>
+
+        <div class="loader-ing">Loading</div>
+
+        <div class="cs-loader">
+          <div class="cs-loader-inner">
+            <i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+        (function() {
+            var e = new XMLHttpRequest
+            e.open("GET", "./svg.svg", !0)
+            e.responseType = "document"
+            e.onload = function() {
+                var t = e.responseXML.documentElement
+                document.body.insertBefore(t, document.body.childNodes[0])
+            }
+            e.send()
+        })()
+    </script>
+
+    <script>
+      (function() {
+        var vp = document.getElementById('viewport')
+          , iPad = navigator.userAgent.match(/(iPad)/g);
+        function vpf() {
+          var sw = screen.width
+            , sh = screen.height
+            , is
+          if(sw < sh) {
+            vp.setAttribute('content', 'width=540')
+          } else {
+            is = iPad ? 1 : sw / (540 * sw / sh)
+            vp.setAttribute('content', 'width=device-width, initial-scale=$is'.replace('$is', is))
+          }
+        }
+        window.onload = vpf
+        window.addEventListener("orientationchange", vpf, false);
+      })()
+    </script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.min.js"></script> -->
+    <script src="./react.min.js"></script>
+    <script src="./react-dom.min.js"></script>
+
+    <script src="./js.js?d=11112019"></script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-6147253-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(41428924, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true,
+            trackHash:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/41428924" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

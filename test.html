@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="./style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Header with Dynamic Content</title>
+<style>
+  /* Style the header */
+  .fixed-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    background: #333;
+    padding: 10px 0;
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  /* Style the navigation links */
+  .fixed-header a {
+    
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: inline-block;
+
+    font-family: Buka;  
+  }
+  /* Style for content div */
+  .content {
+    margin-top: 60px; /* Add a top margin to allow space for the fixed header */
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="fixed-header">
+  <a href="index.html"
+   target="_self"
+   onclick="window.open(
+     'https://500px.com/p/t3oc','a6000 photos','width=1280,height=720')">
+     <img src="svg/500px.svg"  ></a>
+
+     <a href="index.html"
+     target="_self"
+     onclick="window.open(
+       'https://t3oc.bandcamp.com','a6000 photos','width=1280,height=720')">
+       <img src="svg/bc.svg"  ></a>
+
+       <a href="index.html"
+       target="_self"
+       onclick="window.open(
+         'https://artstation.com/t3oc','artstation','width=1280,height=720')">
+         <img src="svg/a.svg"  ></a>
+
+         <a href="index.html"
+         target="_self"
+         onclick="window.open(
+           'https://bsky.app/profile/t3oc.bsky.social','a6000 photos','width=1280,height=720')">
+           <img src="svg/b.svg"  ></a>
+ 
+
+     <a href="index.html"
+     target="_self"
+     onclick="window.open(
+     'https://t.me/t3_os','telegram','width=550,height=550')">
+     <img src="svg/T.svg"  ></a>
+
+     <a href="index.html"
+         target="_self"
+         onclick="window.open(
+           'https://cara.app/t3oc','a6000 photos','width=1280,height=720')">
+           <img src="svg/c.svg"  ></a>
+
+
+     <a href="index.html"
+     target="_self"
+     onclick="window.open(
+       'https://youtube.com/@t3oc','youtube','width=1280,height=720')">
+       <img src="svg/You.svg"  ></a>
+
+  
+
+     
+     
+       
+           <a href="index.html"
+           target="_self"
+           onclick="window.open(
+             'https://ru.pinterest.com/t3oc/','a6000 photos','width=1280,height=720')">
+             <img src="svg/P.svg"  ></a>
+</div>
+
+<div class="content" id="content">
+  <!-- Content will be loaded here -->
+</div>
+
+<script>
+// Function to load HTML files into the div
+function loadContent(htmlFile) {
+  fetch(htmlFile)
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('content').innerHTML = data;
+    })
+    .catch(error => console.error(error));
+}
+
+// Load default page
+loadContent('index.html');
+</script>
+
+</body>
+</html>
